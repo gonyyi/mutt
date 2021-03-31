@@ -6,7 +6,6 @@ package mutt
 import (
 	"encoding/json"
 	"github.com/gonyyi/atype"
-	"github.com/gonyyi/mutt"
 	"time"
 )
 
@@ -95,17 +94,17 @@ type UserCredential struct {
 }
 
 func (c *UserCredential) SetPasswd(pwd string) error {
-	b, err := mutt.PasswdHash([]byte(pwd))
+	b, err := PasswdHash([]byte(pwd))
 	c.Passwd = string(b)
 	return err
 }
 
 func (c *UserCredential) VerifyPasswd(pwd string) error {
-	return mutt.PasswdCompare([]byte(c.Passwd), []byte(pwd))
+	return PasswdCompare([]byte(c.Passwd), []byte(pwd))
 }
 
 func (c *UserCredential) NewToken() {
-	c.Token = mutt.Random(32)
+	c.Token = Random(32)
 }
 
 type UserEmail struct {
