@@ -7,6 +7,11 @@ import (
 	"encoding/base64"
 	"golang.org/x/crypto/bcrypt"
 	"io"
+	"errors"
+)
+
+var (
+	ERR_ENC_CIPHER_SHORT = errors.New("encryption cipher too short")
 )
 
 func PasswdHash(pwd []byte) ([]byte, error) {
