@@ -1,3 +1,6 @@
+// (C) 2021 GON Y YI.
+// https://gonyyi.com/copyright.txt
+
 package mutt
 
 func CheckParamString(fields ...string) error {
